@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6639A7B-B3F5-4757-A211-923A7C4ADC4E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Onvif.Core.Framework</RootNamespace>
+    <AssemblyName>Onvif.Core.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\Camera\Account.cs" />
+    <Compile Include="Client\Camera\Camera.cs" />
+    <Compile Include="Client\Camera\CameraExtensions.cs" />
+    <Compile Include="Client\Camera\Requests\CameraFocusRequest.cs" />
+    <Compile Include="Client\Camera\Requests\CameraMoveRequest.cs" />
+    <Compile Include="Client\Camera\Requests\Request.cs" />
+    <Compile Include="Client\Common\DataTypes.cs" />
+    <Compile Include="Client\Device\DataTypes.cs" />
+    <Compile Include="Client\Device\DeviceClient.cs" />
+    <Compile Include="Client\Imaging\DataTypes.cs" />
+    <Compile Include="Client\Imaging\ImagingClient.cs" />
+    <Compile Include="Client\Media\DataTypes.cs" />
+    <Compile Include="Client\Media\MediaClient.cs" />
+    <Compile Include="Client\OnvifClientFactory.cs" />
+    <Compile Include="Client\Ptz\DataTypes.cs" />
+    <Compile Include="Client\Ptz\PTZClient.cs" />
+    <Compile Include="Client\Security\SoapSecurityHeader.cs" />
+    <Compile Include="Client\Security\SoapSecurityHeaderBehavior.cs" />
+    <Compile Include="Client\Security\SoapSecurityHeaderInspector.cs" />
+    <Compile Include="Discovery\Common\Constants.cs" />
+    <Compile Include="Discovery\Common\ExtensionMethods.cs" />
+    <Compile Include="Discovery\Common\UdpClientWrapper.cs" />
+    <Compile Include="Discovery\Common\WSProbeMessageBuilder.cs" />
+    <Compile Include="Discovery\DiscoveryService.cs" />
+    <Compile Include="Discovery\Interfaces\IDiscoveryService.cs" />
+    <Compile Include="Discovery\Interfaces\IUdpClient.cs" />
+    <Compile Include="Discovery\Interfaces\IWSDiscovery.cs" />
+    <Compile Include="Discovery\Models\DiscoveryDevice.cs" />
+    <Compile Include="Discovery\Models\XmlProbeReponse.cs" />
+    <Compile Include="Discovery\WSDiscovery.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+    <None Include="wsdl\common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\devicemgmt.wsdl" />
+    <None Include="wsdl\imaging.wsdl" />
+    <None Include="wsdl\media.wsdl" />
+    <None Include="wsdl\onvif.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\ptz.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
