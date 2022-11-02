@@ -121,6 +121,8 @@ namespace OnvifDiscovery
 						}
 					} catch (SocketException) {
 						// Either the user canceled the action or the timeout has fired
+					} catch (AggregateException) {
+
 					} catch (OperationCanceledException) {
 						// Either the user canceled the action or the timeout has fired
 					} catch (Exception) {
